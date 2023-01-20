@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package servicegrpc;
+
+option go_package = "infrastructure/servicegrpc";
+
+message RequestGet {
+  string key = 1;
+}
+
+message ResponseGet {
+  string value = 1;
+  string message = 2;
+  bool isCacheKeyNotFound = 3;
+}
+
+message RequestSet {
+  string key = 1;
+  string value = 2;
+  int64 expirationInSeconds = 3;
+}
+
+message ResponseSet {
+  string message = 1;
+}
+
+service RedisService {
+  rpc Get(RequestGet) returns (ResponseGet) {};
+  rpc Set(RequestSet) returns (ResponseSet) {};
+}
