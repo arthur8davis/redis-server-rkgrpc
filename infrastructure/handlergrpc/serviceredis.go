@@ -3,6 +3,8 @@ package handlergrpc
 import (
 	"context"
 	"fmt"
+	"rhyme80/redis-server-rkgrpc/infrastructure/tracing"
+	"rhyme80/redis-server-rkgrpc/model"
 	"strings"
 	"time"
 
@@ -12,17 +14,18 @@ import (
 	"google.golang.org/grpc/status"
 
 	"rhyme80/redis-server-rkgrpc/infrastructure/cache"
-	redisGrpc "rhyme80/redis-server-rkgrpc/infrastructure/servicegrpc/protosw"
+	redisGrpc "rhyme80/redis-server-rkgrpc/infrastructure/servicegrpc/proto"
 )
 
 type HandlerGrpc struct {
 	redisCache cache.Cache
+	tracing    tracing.Tracing
 
 	redisGrpc.UnimplementedRedisServiceServer
 }
 
-func New(redisCache cache.Cache) *HandlerGrpc {
-	return &HandlerGrpc{redisCache: redisCache}
+func New(redisCache cache.Cache, tracing tracing.Tracing) *HandlerGrpc {
+	return &HandlerGrpc{redisCache: redisCache, tracing: tracing}
 }
 
 func (h *HandlerGrpc) Get(ctx context.Context, get *redisGrpc.RequestGet) (*redisGrpc.ResponseGet, error) {
@@ -32,17 +35,26 @@ func (h *HandlerGrpc) Get(ctx context.Context, get *redisGrpc.RequestGet) (*redi
 
 	key := get.GetKey()
 
+	timeInit := time.Now()
+
 	stringData := h.redisCache.Get(ctx, key)
 
 	value, err := stringData.Result()
+	h.tracing.Logger(ctx, model.DataLogger{
+		Operation:    "getCache",
+		StartTime:    timeInit,
+		EndTime:      time.Now(),
+		ElapsedNano:  time.Since(timeInit).Nanoseconds(),
+		Where:        "serviceRedis.Get",
+		Body:         "key: " + key,
+		BodyResponse: value,
+		Error:        err,
+		IsError:      err != redis.Nil && err != nil,
+	})
 	if err == redis.Nil || value == "" {
-		fmt.Println("--------------------")
-		fmt.Println(err)
 		return &redisGrpc.ResponseGet{Message: "redis: key not found", IsCacheKeyNotFound: true}, nil
 	}
 	if err != redis.Nil && err != nil {
-		fmt.Println("###################")
-		fmt.Println(err)
 		return nil, err
 	}
 
@@ -58,12 +70,33 @@ func (h *HandlerGrpc) Set(ctx context.Context, set *redisGrpc.RequestSet) (*redi
 	value := set.GetValue()
 	expiration := set.GetExpirationInSeconds()
 
+	timeInit := time.Now()
+
 	err := h.redisCache.Set(ctx, key, value, time.Duration(expiration)*time.Second).Err()
+	h.tracing.Logger(ctx, model.DataLogger{
+		Operation:   "getCache",
+		StartTime:   timeInit,
+		EndTime:     time.Now(),
+		ElapsedNano: time.Since(timeInit).Nanoseconds(),
+		Where:       "serviceRedis.Get",
+		Body:        fmt.Sprintf("key: %s, value: %s, expiration: %d", key, value, expiration),
+		Error:       err,
+		IsError:     err != redis.Nil && err != nil,
+	})
 	if err != nil {
 		return nil, err
 	}
 
 	return &redisGrpc.ResponseSet{Message: "successful"}, nil
+}
+
+func (h *HandlerGrpc) HealthRedis(ctx context.Context, _ *redisGrpc.RequestHealthRedis) (*redisGrpc.ResponseHealthRedis, error) {
+	_, err := h.redisCache.Health(ctx).Result()
+	if err != redis.Nil && err != nil {
+		return nil, err
+	}
+
+	return &redisGrpc.ResponseHealthRedis{Live: true}, nil
 }
 
 func validateHeaders(ctx context.Context) error {

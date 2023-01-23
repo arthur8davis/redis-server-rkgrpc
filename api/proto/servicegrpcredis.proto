@@ -24,7 +24,19 @@ message ResponseSet {
   string message = 1;
 }
 
+message RequestHealthRedis {}
+
+message ResponseHealthRedis {
+  bool live = 1;
+}
+
 service RedisService {
   rpc Get(RequestGet) returns (ResponseGet) {};
   rpc Set(RequestSet) returns (ResponseSet) {};
+  rpc HealthRedis(RequestHealthRedis) returns (ResponseHealthRedis) {
+    option (google.api.http) = {
+      post: "/v1/example/echo"
+      body: "*"
+    };
+  };
 }

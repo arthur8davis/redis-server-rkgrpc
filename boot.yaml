@@ -1,30 +1,36 @@
 ---
+logger:
+  - name: zap-logger
+    description: "Description of entry"
+    zap:
+      encoding: json
+event:
+  - name: event-logger
+    encoding: json
 grpc:
   - name: redisserver                     # Required
     port: 9000                        # Required
     enabled: true                     # Required
     enableReflection: true            # Optional, default: false
     enableRkGwOption: true            # Optional, default: false
+    loggerEntry: zap-logger
+    eventEntry: event-logger
     commonService:
       enabled: true                   # Optional, default: false
     docs:
       enabled: true                   # Optional, default: false
     sw:
       enabled: true                   # Optional, default: false
+      jsonPath: api/docs
     prom:
       enabled: true                   # Optional, default: false
-    pprof:
-      enabled: true
     middleware:
       #errorModel: amazon
       logging:
         enabled: true                 # Optional, default: false
+        loggerEncoding: "json"
+        eventEncoding: "json"
       prom:
         enabled: true                 # Optional, default: false
       meta:
-        enabled: true                 # Optional, default: false
-      cors:
-        allowOrigins:
-          - "http://localhost:*"
-      secure:
         enabled: true                 # Optional, default: false

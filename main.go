@@ -9,10 +9,10 @@ import (
 //go:embed boot.yaml
 var boot []byte
 
-//go:embed infrastructure/servicegrpc/protosw
+//go:embed infrastructure/servicegrpc/proto
 var docsFS embed.FS
 
-//go:embed infrastructure/servicegrpc/protosw
+//go:embed infrastructure/servicegrpc/proto
 var staticFS embed.FS
 
 func init() {
