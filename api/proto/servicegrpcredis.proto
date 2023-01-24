@@ -24,6 +24,53 @@ message ResponseSet {
   string message = 1;
 }
 
+message RequestExpire {
+  string key = 1;
+  int64 expirationInSeconds = 2;
+}
+
+message ResponseExpire {
+  string message = 1;
+}
+
+message RequestDel {
+  string key = 1;
+}
+
+message ResponseDel {
+  string message = 1;
+}
+
+message RequestHGet {
+  string hash = 1;
+  string key = 2;
+}
+
+message ResponseHGet {
+  string value = 1;
+  string message = 2;
+  bool isCacheKeyNotFound = 3;
+}
+
+message RequestHSet {
+  string hash = 1;
+  string key = 2;
+  string value = 3;
+}
+
+message ResponseHSet {
+  string message = 1;
+}
+
+message RequestHDel {
+  string hash = 1;
+  string key = 2;
+}
+
+message ResponseHDel {
+  string message = 1;
+}
+
 message RequestHealthRedis {}
 
 message ResponseHealthRedis {
@@ -33,10 +80,10 @@ message ResponseHealthRedis {
 service RedisService {
   rpc Get(RequestGet) returns (ResponseGet) {};
   rpc Set(RequestSet) returns (ResponseSet) {};
-  rpc HealthRedis(RequestHealthRedis) returns (ResponseHealthRedis) {
-    option (google.api.http) = {
-      post: "/v1/example/echo"
-      body: "*"
-    };
-  };
+  rpc Del(RequestDel) returns (ResponseDel) {};
+  rpc Expire(RequestExpire) returns (ResponseExpire) {};
+  rpc HGet(RequestHGet) returns (ResponseHGet) {};
+  rpc HSet(RequestHSet) returns (ResponseHSet) {};
+  rpc HDel(RequestHDel) returns (ResponseHDel) {};
+  rpc HealthRedis(RequestHealthRedis) returns (ResponseHealthRedis) {};
 }

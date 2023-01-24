@@ -4,9 +4,5 @@ config_version: 3
 # Please refer google.api.Http in https://github.com/googleapis/googleapis/blob/master/google/api/http.proto file for details.
 http:
   rules:
-    - selector: servicegrpc.RedisService.Get
-      get: /sp/srvgrpc/get
-    - selector: servicegrpc.RedisService.Set
-      post: /sp/srvgrpc/set
     - selector: servicegrpc.RedisService.HealthRedis
       get: /sp/srvgrpc/health-redis

@@ -240,6 +240,532 @@ func (x *ResponseSet) GetMessage() string {
 	return ""
 }
 
+type RequestExpire struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Key                 string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	ExpirationInSeconds int64  `protobuf:"varint,2,opt,name=expirationInSeconds,proto3" json:"expirationInSeconds,omitempty"`
+}
+
+func (x *RequestExpire) Reset() {
+	*x = RequestExpire{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_servicegrpcredis_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RequestExpire) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequestExpire) ProtoMessage() {}
+
+func (x *RequestExpire) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_servicegrpcredis_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequestExpire.ProtoReflect.Descriptor instead.
+func (*RequestExpire) Descriptor() ([]byte, []int) {
+	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *RequestExpire) GetKey() string {
+	if x != nil {
+		return x.Key
+	}
+	return ""
+}
+
+func (x *RequestExpire) GetExpirationInSeconds() int64 {
+	if x != nil {
+		return x.ExpirationInSeconds
+	}
+	return 0
+}
+
+type ResponseExpire struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+}
+
+func (x *ResponseExpire) Reset() {
+	*x = ResponseExpire{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_servicegrpcredis_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ResponseExpire) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResponseExpire) ProtoMessage() {}
+
+func (x *ResponseExpire) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_servicegrpcredis_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResponseExpire.ProtoReflect.Descriptor instead.
+func (*ResponseExpire) Descriptor() ([]byte, []int) {
+	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ResponseExpire) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type RequestDel struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+}
+
+func (x *RequestDel) Reset() {
+	*x = RequestDel{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_servicegrpcredis_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RequestDel) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequestDel) ProtoMessage() {}
+
+func (x *RequestDel) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_servicegrpcredis_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequestDel.ProtoReflect.Descriptor instead.
+func (*RequestDel) Descriptor() ([]byte, []int) {
+	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *RequestDel) GetKey() string {
+	if x != nil {
+		return x.Key
+	}
+	return ""
+}
+
+type ResponseDel struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+}
+
+func (x *ResponseDel) Reset() {
+	*x = ResponseDel{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_servicegrpcredis_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ResponseDel) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResponseDel) ProtoMessage() {}
+
+func (x *ResponseDel) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_servicegrpcredis_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResponseDel.ProtoReflect.Descriptor instead.
+func (*ResponseDel) Descriptor() ([]byte, []int) {
+	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *ResponseDel) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type RequestHGet struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Hash string `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
+	Key  string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
+}
+
+func (x *RequestHGet) Reset() {
+	*x = RequestHGet{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_servicegrpcredis_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RequestHGet) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequestHGet) ProtoMessage() {}
+
+func (x *RequestHGet) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_servicegrpcredis_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequestHGet.ProtoReflect.Descriptor instead.
+func (*RequestHGet) Descriptor() ([]byte, []int) {
+	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *RequestHGet) GetHash() string {
+	if x != nil {
+		return x.Hash
+	}
+	return ""
+}
+
+func (x *RequestHGet) GetKey() string {
+	if x != nil {
+		return x.Key
+	}
+	return ""
+}
+
+type ResponseHGet struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Value              string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	Message            string `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	IsCacheKeyNotFound bool   `protobuf:"varint,3,opt,name=isCacheKeyNotFound,proto3" json:"isCacheKeyNotFound,omitempty"`
+}
+
+func (x *ResponseHGet) Reset() {
+	*x = ResponseHGet{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_servicegrpcredis_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ResponseHGet) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResponseHGet) ProtoMessage() {}
+
+func (x *ResponseHGet) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_servicegrpcredis_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResponseHGet.ProtoReflect.Descriptor instead.
+func (*ResponseHGet) Descriptor() ([]byte, []int) {
+	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *ResponseHGet) GetValue() string {
+	if x != nil {
+		return x.Value
+	}
+	return ""
+}
+
+func (x *ResponseHGet) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *ResponseHGet) GetIsCacheKeyNotFound() bool {
+	if x != nil {
+		return x.IsCacheKeyNotFound
+	}
+	return false
+}
+
+type RequestHSet struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Hash  string `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
+	Key   string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
+	Value string `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
+}
+
+func (x *RequestHSet) Reset() {
+	*x = RequestHSet{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_servicegrpcredis_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RequestHSet) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequestHSet) ProtoMessage() {}
+
+func (x *RequestHSet) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_servicegrpcredis_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequestHSet.ProtoReflect.Descriptor instead.
+func (*RequestHSet) Descriptor() ([]byte, []int) {
+	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *RequestHSet) GetHash() string {
+	if x != nil {
+		return x.Hash
+	}
+	return ""
+}
+
+func (x *RequestHSet) GetKey() string {
+	if x != nil {
+		return x.Key
+	}
+	return ""
+}
+
+func (x *RequestHSet) GetValue() string {
+	if x != nil {
+		return x.Value
+	}
+	return ""
+}
+
+type ResponseHSet struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+}
+
+func (x *ResponseHSet) Reset() {
+	*x = ResponseHSet{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_servicegrpcredis_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ResponseHSet) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResponseHSet) ProtoMessage() {}
+
+func (x *ResponseHSet) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_servicegrpcredis_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResponseHSet.ProtoReflect.Descriptor instead.
+func (*ResponseHSet) Descriptor() ([]byte, []int) {
+	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *ResponseHSet) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type RequestHDel struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Hash string `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
+	Key  string `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
+}
+
+func (x *RequestHDel) Reset() {
+	*x = RequestHDel{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_servicegrpcredis_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RequestHDel) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequestHDel) ProtoMessage() {}
+
+func (x *RequestHDel) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_servicegrpcredis_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequestHDel.ProtoReflect.Descriptor instead.
+func (*RequestHDel) Descriptor() ([]byte, []int) {
+	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *RequestHDel) GetHash() string {
+	if x != nil {
+		return x.Hash
+	}
+	return ""
+}
+
+func (x *RequestHDel) GetKey() string {
+	if x != nil {
+		return x.Key
+	}
+	return ""
+}
+
+type ResponseHDel struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+}
+
+func (x *ResponseHDel) Reset() {
+	*x = ResponseHDel{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_servicegrpcredis_proto_msgTypes[13]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ResponseHDel) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResponseHDel) ProtoMessage() {}
+
+func (x *ResponseHDel) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_servicegrpcredis_proto_msgTypes[13]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResponseHDel.ProtoReflect.Descriptor instead.
+func (*ResponseHDel) Descriptor() ([]byte, []int) {
+	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ResponseHDel) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 type RequestHealthRedis struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -249,7 +775,7 @@ type RequestHealthRedis struct {
 func (x *RequestHealthRedis) Reset() {
 	*x = RequestHealthRedis{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_servicegrpcredis_proto_msgTypes[4]
+		mi := &file_proto_servicegrpcredis_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -262,7 +788,7 @@ func (x *RequestHealthRedis) String() string {
 func (*RequestHealthRedis) ProtoMessage() {}
 
 func (x *RequestHealthRedis) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_servicegrpcredis_proto_msgTypes[4]
+	mi := &file_proto_servicegrpcredis_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -275,7 +801,7 @@ func (x *RequestHealthRedis) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestHealthRedis.ProtoReflect.Descriptor instead.
 func (*RequestHealthRedis) Descriptor() ([]byte, []int) {
-	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{4}
+	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{14}
 }
 
 type ResponseHealthRedis struct {
@@ -289,7 +815,7 @@ type ResponseHealthRedis struct {
 func (x *ResponseHealthRedis) Reset() {
 	*x = ResponseHealthRedis{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_servicegrpcredis_proto_msgTypes[5]
+		mi := &file_proto_servicegrpcredis_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -302,7 +828,7 @@ func (x *ResponseHealthRedis) String() string {
 func (*ResponseHealthRedis) ProtoMessage() {}
 
 func (x *ResponseHealthRedis) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_servicegrpcredis_proto_msgTypes[5]
+	mi := &file_proto_servicegrpcredis_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -315,7 +841,7 @@ func (x *ResponseHealthRedis) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResponseHealthRedis.ProtoReflect.Descriptor instead.
 func (*ResponseHealthRedis) Descriptor() ([]byte, []int) {
-	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{5}
+	return file_proto_servicegrpcredis_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *ResponseHealthRedis) GetLive() bool {
@@ -348,27 +874,83 @@ var file_proto_servicegrpcredis_proto_rawDesc = []byte{
 	0x78, 0x70, 0x69, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x53, 0x65, 0x63, 0x6f, 0x6e,
 	0x64, 0x73, 0x22, 0x27, 0x0a, 0x0b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x53, 0x65,
 	0x74, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x14, 0x0a, 0x12, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x52, 0x65, 0x64, 0x69,
-	0x73, 0x22, 0x29, 0x0a, 0x13, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x48, 0x65, 0x61,
-	0x6c, 0x74, 0x68, 0x52, 0x65, 0x64, 0x69, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x6c, 0x69, 0x76, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x04, 0x6c, 0x69, 0x76, 0x65, 0x32, 0xda, 0x01, 0x0a,
-	0x0c, 0x52, 0x65, 0x64, 0x69, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3a, 0x0a,
-	0x03, 0x47, 0x65, 0x74, 0x12, 0x17, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72,
-	0x70, 0x63, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x47, 0x65, 0x74, 0x1a, 0x18, 0x2e,
-	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x47, 0x65, 0x74, 0x22, 0x00, 0x12, 0x3a, 0x0a, 0x03, 0x53, 0x65, 0x74,
-	0x12, 0x17, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x53, 0x65, 0x74, 0x1a, 0x18, 0x2e, 0x73, 0x65, 0x72, 0x76,
+	0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x53, 0x0a, 0x0d, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x45, 0x78, 0x70, 0x69, 0x72, 0x65, 0x12, 0x10, 0x0a, 0x03,
+	0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x30,
+	0x0a, 0x13, 0x65, 0x78, 0x70, 0x69, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x53, 0x65,
+	0x63, 0x6f, 0x6e, 0x64, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x13, 0x65, 0x78, 0x70,
+	0x69, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x6e, 0x53, 0x65, 0x63, 0x6f, 0x6e, 0x64, 0x73,
+	0x22, 0x2a, 0x0a, 0x0e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x45, 0x78, 0x70, 0x69,
+	0x72, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x1e, 0x0a, 0x0a,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x44, 0x65, 0x6c, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65,
+	0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x27, 0x0a, 0x0b,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65, 0x6c, 0x12, 0x18, 0x0a, 0x07, 0x6d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x33, 0x0a, 0x0b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x48, 0x47, 0x65, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x61, 0x73, 0x68, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x04, 0x68, 0x61, 0x73, 0x68, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x22, 0x6e, 0x0a, 0x0c, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x48, 0x47, 0x65, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61,
+	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x2e, 0x0a, 0x12, 0x69, 0x73,
+	0x43, 0x61, 0x63, 0x68, 0x65, 0x4b, 0x65, 0x79, 0x4e, 0x6f, 0x74, 0x46, 0x6f, 0x75, 0x6e, 0x64,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x12, 0x69, 0x73, 0x43, 0x61, 0x63, 0x68, 0x65, 0x4b,
+	0x65, 0x79, 0x4e, 0x6f, 0x74, 0x46, 0x6f, 0x75, 0x6e, 0x64, 0x22, 0x49, 0x0a, 0x0b, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x48, 0x53, 0x65, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x61, 0x73,
+	0x68, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x68, 0x61, 0x73, 0x68, 0x12, 0x10, 0x0a,
+	0x03, 0x6b, 0x65, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12,
+	0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x28, 0x0a, 0x0c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x48, 0x53, 0x65, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22,
+	0x33, 0x0a, 0x0b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x48, 0x44, 0x65, 0x6c, 0x12, 0x12,
+	0x0a, 0x04, 0x68, 0x61, 0x73, 0x68, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x68, 0x61,
+	0x73, 0x68, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x03, 0x6b, 0x65, 0x79, 0x22, 0x28, 0x0a, 0x0c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x48, 0x44, 0x65, 0x6c, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x14,
+	0x0a, 0x12, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x52,
+	0x65, 0x64, 0x69, 0x73, 0x22, 0x29, 0x0a, 0x13, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x52, 0x65, 0x64, 0x69, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x6c,
+	0x69, 0x76, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x04, 0x6c, 0x69, 0x76, 0x65, 0x32,
+	0x98, 0x04, 0x0a, 0x0c, 0x52, 0x65, 0x64, 0x69, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x12, 0x3a, 0x0a, 0x03, 0x47, 0x65, 0x74, 0x12, 0x17, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x47, 0x65, 0x74,
+	0x1a, 0x18, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x47, 0x65, 0x74, 0x22, 0x00, 0x12, 0x3a, 0x0a, 0x03,
+	0x53, 0x65, 0x74, 0x12, 0x17, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70,
+	0x63, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x53, 0x65, 0x74, 0x1a, 0x18, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x53, 0x65, 0x74, 0x22, 0x00, 0x12, 0x3a, 0x0a, 0x03, 0x44, 0x65, 0x6c, 0x12,
+	0x17, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x44, 0x65, 0x6c, 0x1a, 0x18, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44,
+	0x65, 0x6c, 0x22, 0x00, 0x12, 0x43, 0x0a, 0x06, 0x45, 0x78, 0x70, 0x69, 0x72, 0x65, 0x12, 0x1a,
+	0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x45, 0x78, 0x70, 0x69, 0x72, 0x65, 0x1a, 0x1b, 0x2e, 0x73, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x45, 0x78, 0x70, 0x69, 0x72, 0x65, 0x22, 0x00, 0x12, 0x3d, 0x0a, 0x04, 0x48, 0x47, 0x65,
+	0x74, 0x12, 0x18, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x48, 0x47, 0x65, 0x74, 0x1a, 0x19, 0x2e, 0x73, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x48, 0x47, 0x65, 0x74, 0x22, 0x00, 0x12, 0x3d, 0x0a, 0x04, 0x48, 0x53, 0x65, 0x74,
+	0x12, 0x18, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x48, 0x53, 0x65, 0x74, 0x1a, 0x19, 0x2e, 0x73, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x48, 0x53, 0x65, 0x74, 0x22, 0x00, 0x12, 0x3d, 0x0a, 0x04, 0x48, 0x44, 0x65, 0x6c, 0x12,
+	0x18, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x48, 0x44, 0x65, 0x6c, 0x1a, 0x19, 0x2e, 0x73, 0x65, 0x72, 0x76,
 	0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x53, 0x65, 0x74, 0x22, 0x00, 0x12, 0x52, 0x0a, 0x0b, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x52,
-	0x65, 0x64, 0x69, 0x73, 0x12, 0x1f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67, 0x72,
-	0x70, 0x63, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68,
-	0x52, 0x65, 0x64, 0x69, 0x73, 0x1a, 0x20, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67,
-	0x72, 0x70, 0x63, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x48, 0x65, 0x61, 0x6c,
-	0x74, 0x68, 0x52, 0x65, 0x64, 0x69, 0x73, 0x22, 0x00, 0x42, 0x1c, 0x5a, 0x1a, 0x69, 0x6e, 0x66,
-	0x72, 0x61, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x75, 0x72, 0x65, 0x2f, 0x73, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x48, 0x44, 0x65, 0x6c, 0x22, 0x00, 0x12, 0x52, 0x0a, 0x0b, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68,
+	0x52, 0x65, 0x64, 0x69, 0x73, 0x12, 0x1f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x67,
+	0x72, 0x70, 0x63, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x48, 0x65, 0x61, 0x6c, 0x74,
+	0x68, 0x52, 0x65, 0x64, 0x69, 0x73, 0x1a, 0x20, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x67, 0x72, 0x70, 0x63, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x48, 0x65, 0x61,
+	0x6c, 0x74, 0x68, 0x52, 0x65, 0x64, 0x69, 0x73, 0x22, 0x00, 0x42, 0x1c, 0x5a, 0x1a, 0x69, 0x6e,
+	0x66, 0x72, 0x61, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x75, 0x72, 0x65, 0x2f, 0x73, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x67, 0x72, 0x70, 0x63, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -383,27 +965,47 @@ func file_proto_servicegrpcredis_proto_rawDescGZIP() []byte {
 	return file_proto_servicegrpcredis_proto_rawDescData
 }
 
-var file_proto_servicegrpcredis_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_proto_servicegrpcredis_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_proto_servicegrpcredis_proto_goTypes = []interface{}{
 	(*RequestGet)(nil),          // 0: servicegrpc.RequestGet
 	(*ResponseGet)(nil),         // 1: servicegrpc.ResponseGet
 	(*RequestSet)(nil),          // 2: servicegrpc.RequestSet
 	(*ResponseSet)(nil),         // 3: servicegrpc.ResponseSet
-	(*RequestHealthRedis)(nil),  // 4: servicegrpc.RequestHealthRedis
-	(*ResponseHealthRedis)(nil), // 5: servicegrpc.ResponseHealthRedis
+	(*RequestExpire)(nil),       // 4: servicegrpc.RequestExpire
+	(*ResponseExpire)(nil),      // 5: servicegrpc.ResponseExpire
+	(*RequestDel)(nil),          // 6: servicegrpc.RequestDel
+	(*ResponseDel)(nil),         // 7: servicegrpc.ResponseDel
+	(*RequestHGet)(nil),         // 8: servicegrpc.RequestHGet
+	(*ResponseHGet)(nil),        // 9: servicegrpc.ResponseHGet
+	(*RequestHSet)(nil),         // 10: servicegrpc.RequestHSet
+	(*ResponseHSet)(nil),        // 11: servicegrpc.ResponseHSet
+	(*RequestHDel)(nil),         // 12: servicegrpc.RequestHDel
+	(*ResponseHDel)(nil),        // 13: servicegrpc.ResponseHDel
+	(*RequestHealthRedis)(nil),  // 14: servicegrpc.RequestHealthRedis
+	(*ResponseHealthRedis)(nil), // 15: servicegrpc.ResponseHealthRedis
 }
 var file_proto_servicegrpcredis_proto_depIdxs = []int32{
-	0, // 0: servicegrpc.RedisService.Get:input_type -> servicegrpc.RequestGet
-	2, // 1: servicegrpc.RedisService.Set:input_type -> servicegrpc.RequestSet
-	4, // 2: servicegrpc.RedisService.HealthRedis:input_type -> servicegrpc.RequestHealthRedis
-	1, // 3: servicegrpc.RedisService.Get:output_type -> servicegrpc.ResponseGet
-	3, // 4: servicegrpc.RedisService.Set:output_type -> servicegrpc.ResponseSet
-	5, // 5: servicegrpc.RedisService.HealthRedis:output_type -> servicegrpc.ResponseHealthRedis
-	3, // [3:6] is the sub-list for method output_type
-	0, // [0:3] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: servicegrpc.RedisService.Get:input_type -> servicegrpc.RequestGet
+	2,  // 1: servicegrpc.RedisService.Set:input_type -> servicegrpc.RequestSet
+	6,  // 2: servicegrpc.RedisService.Del:input_type -> servicegrpc.RequestDel
+	4,  // 3: servicegrpc.RedisService.Expire:input_type -> servicegrpc.RequestExpire
+	8,  // 4: servicegrpc.RedisService.HGet:input_type -> servicegrpc.RequestHGet
+	10, // 5: servicegrpc.RedisService.HSet:input_type -> servicegrpc.RequestHSet
+	12, // 6: servicegrpc.RedisService.HDel:input_type -> servicegrpc.RequestHDel
+	14, // 7: servicegrpc.RedisService.HealthRedis:input_type -> servicegrpc.RequestHealthRedis
+	1,  // 8: servicegrpc.RedisService.Get:output_type -> servicegrpc.ResponseGet
+	3,  // 9: servicegrpc.RedisService.Set:output_type -> servicegrpc.ResponseSet
+	7,  // 10: servicegrpc.RedisService.Del:output_type -> servicegrpc.ResponseDel
+	5,  // 11: servicegrpc.RedisService.Expire:output_type -> servicegrpc.ResponseExpire
+	9,  // 12: servicegrpc.RedisService.HGet:output_type -> servicegrpc.ResponseHGet
+	11, // 13: servicegrpc.RedisService.HSet:output_type -> servicegrpc.ResponseHSet
+	13, // 14: servicegrpc.RedisService.HDel:output_type -> servicegrpc.ResponseHDel
+	15, // 15: servicegrpc.RedisService.HealthRedis:output_type -> servicegrpc.ResponseHealthRedis
+	8,  // [8:16] is the sub-list for method output_type
+	0,  // [0:8] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_servicegrpcredis_proto_init() }
@@ -461,7 +1063,7 @@ func file_proto_servicegrpcredis_proto_init() {
 			}
 		}
 		file_proto_servicegrpcredis_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RequestHealthRedis); i {
+			switch v := v.(*RequestExpire); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -473,6 +1075,126 @@ func file_proto_servicegrpcredis_proto_init() {
 			}
 		}
 		file_proto_servicegrpcredis_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ResponseExpire); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_servicegrpcredis_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RequestDel); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_servicegrpcredis_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ResponseDel); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_servicegrpcredis_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RequestHGet); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_servicegrpcredis_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ResponseHGet); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_servicegrpcredis_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RequestHSet); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_servicegrpcredis_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ResponseHSet); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_servicegrpcredis_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RequestHDel); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_servicegrpcredis_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ResponseHDel); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_servicegrpcredis_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RequestHealthRedis); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_servicegrpcredis_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ResponseHealthRedis); i {
 			case 0:
 				return &v.state
@@ -491,7 +1213,7 @@ func file_proto_servicegrpcredis_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_servicegrpcredis_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

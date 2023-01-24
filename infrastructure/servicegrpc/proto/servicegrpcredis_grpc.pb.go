@@ -24,6 +24,11 @@ const _ = grpc.SupportPackageIsVersion7
 type RedisServiceClient interface {
 	Get(ctx context.Context, in *RequestGet, opts ...grpc.CallOption) (*ResponseGet, error)
 	Set(ctx context.Context, in *RequestSet, opts ...grpc.CallOption) (*ResponseSet, error)
+	Del(ctx context.Context, in *RequestDel, opts ...grpc.CallOption) (*ResponseDel, error)
+	Expire(ctx context.Context, in *RequestExpire, opts ...grpc.CallOption) (*ResponseExpire, error)
+	HGet(ctx context.Context, in *RequestHGet, opts ...grpc.CallOption) (*ResponseHGet, error)
+	HSet(ctx context.Context, in *RequestHSet, opts ...grpc.CallOption) (*ResponseHSet, error)
+	HDel(ctx context.Context, in *RequestHDel, opts ...grpc.CallOption) (*ResponseHDel, error)
 	HealthRedis(ctx context.Context, in *RequestHealthRedis, opts ...grpc.CallOption) (*ResponseHealthRedis, error)
 }
 
@@ -53,6 +58,51 @@ func (c *redisServiceClient) Set(ctx context.Context, in *RequestSet, opts ...gr
 	return out, nil
 }
 
+func (c *redisServiceClient) Del(ctx context.Context, in *RequestDel, opts ...grpc.CallOption) (*ResponseDel, error) {
+	out := new(ResponseDel)
+	err := c.cc.Invoke(ctx, "/servicegrpc.RedisService/Del", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *redisServiceClient) Expire(ctx context.Context, in *RequestExpire, opts ...grpc.CallOption) (*ResponseExpire, error) {
+	out := new(ResponseExpire)
+	err := c.cc.Invoke(ctx, "/servicegrpc.RedisService/Expire", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *redisServiceClient) HGet(ctx context.Context, in *RequestHGet, opts ...grpc.CallOption) (*ResponseHGet, error) {
+	out := new(ResponseHGet)
+	err := c.cc.Invoke(ctx, "/servicegrpc.RedisService/HGet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *redisServiceClient) HSet(ctx context.Context, in *RequestHSet, opts ...grpc.CallOption) (*ResponseHSet, error) {
+	out := new(ResponseHSet)
+	err := c.cc.Invoke(ctx, "/servicegrpc.RedisService/HSet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *redisServiceClient) HDel(ctx context.Context, in *RequestHDel, opts ...grpc.CallOption) (*ResponseHDel, error) {
+	out := new(ResponseHDel)
+	err := c.cc.Invoke(ctx, "/servicegrpc.RedisService/HDel", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *redisServiceClient) HealthRedis(ctx context.Context, in *RequestHealthRedis, opts ...grpc.CallOption) (*ResponseHealthRedis, error) {
 	out := new(ResponseHealthRedis)
 	err := c.cc.Invoke(ctx, "/servicegrpc.RedisService/HealthRedis", in, out, opts...)
@@ -68,6 +118,11 @@ func (c *redisServiceClient) HealthRedis(ctx context.Context, in *RequestHealthR
 type RedisServiceServer interface {
 	Get(context.Context, *RequestGet) (*ResponseGet, error)
 	Set(context.Context, *RequestSet) (*ResponseSet, error)
+	Del(context.Context, *RequestDel) (*ResponseDel, error)
+	Expire(context.Context, *RequestExpire) (*ResponseExpire, error)
+	HGet(context.Context, *RequestHGet) (*ResponseHGet, error)
+	HSet(context.Context, *RequestHSet) (*ResponseHSet, error)
+	HDel(context.Context, *RequestHDel) (*ResponseHDel, error)
 	HealthRedis(context.Context, *RequestHealthRedis) (*ResponseHealthRedis, error)
 }
 
@@ -80,6 +135,21 @@ func (UnimplementedRedisServiceServer) Get(context.Context, *RequestGet) (*Respo
 }
 func (UnimplementedRedisServiceServer) Set(context.Context, *RequestSet) (*ResponseSet, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Set not implemented")
+}
+func (UnimplementedRedisServiceServer) Del(context.Context, *RequestDel) (*ResponseDel, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Del not implemented")
+}
+func (UnimplementedRedisServiceServer) Expire(context.Context, *RequestExpire) (*ResponseExpire, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Expire not implemented")
+}
+func (UnimplementedRedisServiceServer) HGet(context.Context, *RequestHGet) (*ResponseHGet, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method HGet not implemented")
+}
+func (UnimplementedRedisServiceServer) HSet(context.Context, *RequestHSet) (*ResponseHSet, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method HSet not implemented")
+}
+func (UnimplementedRedisServiceServer) HDel(context.Context, *RequestHDel) (*ResponseHDel, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method HDel not implemented")
 }
 func (UnimplementedRedisServiceServer) HealthRedis(context.Context, *RequestHealthRedis) (*ResponseHealthRedis, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HealthRedis not implemented")
@@ -132,6 +202,96 @@ func _RedisService_Set_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RedisService_Del_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestDel)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RedisServiceServer).Del(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/servicegrpc.RedisService/Del",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RedisServiceServer).Del(ctx, req.(*RequestDel))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RedisService_Expire_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestExpire)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RedisServiceServer).Expire(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/servicegrpc.RedisService/Expire",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RedisServiceServer).Expire(ctx, req.(*RequestExpire))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RedisService_HGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestHGet)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RedisServiceServer).HGet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/servicegrpc.RedisService/HGet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RedisServiceServer).HGet(ctx, req.(*RequestHGet))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RedisService_HSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestHSet)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RedisServiceServer).HSet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/servicegrpc.RedisService/HSet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RedisServiceServer).HSet(ctx, req.(*RequestHSet))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RedisService_HDel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestHDel)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RedisServiceServer).HDel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/servicegrpc.RedisService/HDel",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RedisServiceServer).HDel(ctx, req.(*RequestHDel))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _RedisService_HealthRedis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RequestHealthRedis)
 	if err := dec(in); err != nil {
@@ -164,6 +324,26 @@ var RedisService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Set",
 			Handler:    _RedisService_Set_Handler,
+		},
+		{
+			MethodName: "Del",
+			Handler:    _RedisService_Del_Handler,
+		},
+		{
+			MethodName: "Expire",
+			Handler:    _RedisService_Expire_Handler,
+		},
+		{
+			MethodName: "HGet",
+			Handler:    _RedisService_HGet_Handler,
+		},
+		{
+			MethodName: "HSet",
+			Handler:    _RedisService_HSet_Handler,
+		},
+		{
+			MethodName: "HDel",
+			Handler:    _RedisService_HDel_Handler,
 		},
 		{
 			MethodName: "HealthRedis",
